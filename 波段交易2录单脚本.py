@@ -20,7 +20,7 @@ def parse_line(line):
         "首期净价(元)": "",
         "到期收益率": "",
         "行权收益率": "",
-        "执行员": "李英豪"
+        "执行员": "张三"
     }
 
     line = line.strip()
@@ -48,8 +48,8 @@ def parse_line(line):
     # ------------------------------
     # 2) 交易方向、对手方解析
     # ------------------------------
-    sell_pattern = re.search(r"(?:国金证券|国金)\s+(?:to|出给)\s+(\S+)", line, re.IGNORECASE)
-    buy_pattern = re.search(r"(\S+)\s+(?:to|出给)\s+(?:国金证券|国金)", line, re.IGNORECASE)
+    sell_pattern = re.search(r"(?:北京证券|北京)\s+(?:to|出给)\s+(\S+)", line, re.IGNORECASE)
+    buy_pattern = re.search(r"(\S+)\s+(?:to|出给)\s+(?:北京证券|北京)", line, re.IGNORECASE)
 
     if sell_pattern:
         parsed["交易对手"] = sell_pattern.group(1)
@@ -77,8 +77,8 @@ def parse_line(line):
         parts = line.split("发", 1)
         if len(parts) > 1:
             after_fa = parts[-1].strip()
-            # 如果"发"后面有 "国金证券", "李英豪", "国金", "刘铮"，则跳过覆盖
-            if any(keyword in after_fa for keyword in ["国金证券", "李英豪", "国金", "刘铮"]):
+            # 如果"发"后面有 "北京证券", "张三", "北京", "李四"，则跳过覆盖
+            if any(keyword in after_fa for keyword in ["北京证券", "张三", "北京", "李四"]):
                 pass  # 不进行任何覆盖处理，保持原始数据
             else:
                 # 否则，继续处理"发"后面的内容，覆盖交易对手和交易员
@@ -205,7 +205,7 @@ def process_input_to_excel(input_text, output_excel="output.xlsx"):
     today_date = datetime.today().strftime('%Y-%m-%d')  # 获取今天的日期，格式化为 "YYYY-MM-DD"
 
     # 根据日期和固定名称生成文件名
-    output_excel = f"【{today_date}】波段交易2_李英豪.xlsx"
+    output_excel = f"【{today_date}】波段交易2_张三.xlsx"
 
     # 输出结果到Excel文件
     df.to_excel(output_excel, index=False)
@@ -218,3 +218,4 @@ if __name__ == "__main__":
 
 """
     process_input_to_excel(input_text, "output.xlsx")
+
