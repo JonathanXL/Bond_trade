@@ -47,4 +47,5 @@
    ```
 - 贴入代码相应位置后，代码会自动输出xls文件
 - 在这个样例中，输出应当为：
+<img width="1508" height="172" alt="image" src="https://github.com/user-attachments/assets/78a696c2-d9ba-444a-b3dc-4168aae3f7a6" />
 
