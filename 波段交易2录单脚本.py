@@ -6,9 +6,9 @@ def parse_line(line):
     # 获取今天的日期
     today_date = datetime.today().strftime('%Y/%m/%d')
     parsed = {
-        "组合类型": "撮合1",
+        "组合类型": "【输入你想设定的组合类型】",
         "组合名称": "",
-        "内部证券账户代码": "SECU_JY_BDJY2",
+        "内部证券账户代码": "【输入你想设定的组合代码】",
         "交易对手": "",
         "对手交易员": "",
         "执行市场": "银行间场内",
@@ -25,7 +25,7 @@ def parse_line(line):
 
     line = line.strip()
     if not line:
-        parsed["内部证券账户代码"] = "SECU_JY_BDJY2"
+        parsed["内部证券账户代码"] = "【输入你想设定的组合代码】"
         return parsed
 
     # 使用正则分割，空格和逗号都作为分隔符
@@ -37,11 +37,11 @@ def parse_line(line):
     # 1) 内部证券账户代码判断(暂时不需要)
     # ------------------------------
     # if "bd2" in line_lower:
-    #     account_code = "SECU_JY_BDJY2"
+    #     account_code = "【输入你想设定的组合代码】"
     # elif "zj3" in line_lower or "中间3" in line_lower:
-    #     account_code = "SECU_JY_ZJYW3"
+    #     account_code = "【输入你想设定的组合代码2】"
     # else:
-    #     account_code = "SECU_JY_BDJY2"
+    #     account_code = "【输入你想设定的组合代码3】"
     #
     # parsed["内部证券账户代码"] = account_code
 
@@ -218,4 +218,5 @@ if __name__ == "__main__":
 
 """
     process_input_to_excel(input_text, "output.xlsx")
+
 
