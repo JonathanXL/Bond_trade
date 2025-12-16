@@ -8,8 +8,8 @@ input_text = """
 
 """
 
-# 以“国金证券”分割文本得到不同的组
-groups = input_text.split("国金证券")[1:]
+# 以“abc证券”分割文本得到不同的组
+groups = input_text.split("abc证券")[1:]
 
 # 创建两个新的 Excel 工作簿
 wb1= Workbook()
@@ -178,7 +178,7 @@ for group in groups:
 #         print(" ".join(result))
 
         if first_row:        
-            result2 = ["正回购","国金证券",trading_counterparty, counterparty_trader,"双边回购",intend_day,interest_rate2,transaction_face_value2,bond_code, bond_name,bond_face_value, discount2, "+0","全额清算","券款对付","券款对付"]
+            result2 = ["正回购","abc证券",trading_counterparty, counterparty_trader,"双边回购",intend_day,interest_rate2,transaction_face_value2,bond_code, bond_name,bond_face_value, discount2, "+0","全额清算","券款对付","券款对付"]
             first_row = False
         else:        
             result2 = ["","","", "","","","","",bond_code, bond_name,bond_face_value, discount2, "","","",""]
@@ -202,4 +202,5 @@ wb2.save(filename2)
 
 print(f"解析完成，结果已写入 {filename1}")
 print(f"解析完成，结果已写入 {filename2}")
+
         
